@@ -24,8 +24,8 @@ class  Main extends Component{
                             <h1>导航栏</h1>
                         </div>
                         <NavFirst name="Nav1">
-                            <NavSecond path="/index/Nav1/Item1" name="Item1"></NavSecond>
-                            <NavSecond path="/index/Nav1/Item2" name="Item2"></NavSecond>
+                            <NavSecond name="Item1"></NavSecond>
+                            <NavSecond name="Item2"></NavSecond>
                         </NavFirst>
                     </div>
                     <div className="main">

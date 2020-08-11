@@ -3,14 +3,11 @@ import "../styles/Nav-second.css"
 import {NavLink} from "react-router-dom";
 class NavSecond extends Component{
     render() {
-        const displayStyle={
-            display:this.props.display
-        };
-        console.log(displayStyle);
+        let path=this.props.path+"/"+this.props.name;
         return(
-            <li style={displayStyle} >
+            <li >
                 <NavLink
-                    to={this.props.path}
+                    to={path}
                     className="Nav-second"
                 >
                     {this.props.name}

@@ -4,6 +4,6 @@
     font-size: x-large;
     text-decoration: none;
 }
-.Nav-first:visited{
-    color: #282c34;
+.h1-hand{
+    cursor: pointer;
 }

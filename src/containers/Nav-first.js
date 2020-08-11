@@ -1,35 +1,40 @@
 import React, {Component} from "react";
 import {Link} from 'react-router-dom'
 import "../styles/Nav-first.css"
-import {Route,NavLink} from "react-router-dom";
+import {Route,NavLink,withRouter} from "react-router-dom";
+import {createBrowserHistory} from "history";
+const history=createBrowserHistory();
 class NavFirst extends Component{
     constructor(props) {
         super(props);
         this.state= {
-            display: "none"
+            isShow: false,
+            path:'/'
         }
         this.navFirstClick=this.navFirstClick.bind(this);
     }
     navFirstClick(){
+
         this.setState({
-          display:this.state.display==="none"?"list-item":"none"
+            isShow:this.state.isShow===true?false:true,
+            path:this.props.location.pathname+"/"+this.props.name
         })
-        console.log(this.state.display);
     }
     render(){
-        console.log(this.props.name);
         const childrenwithDisplay=React.Children.map(this.props.children,child => React.cloneElement(child,{
-                display:this.state.display
+                path:this.state.path
             })
         );
         return(
             <div>
-                <NavLink to="/index/Nav1" onClick={this.navFirstClick} className="Nav-first">{this.props.name}</NavLink>
-                <ul className="Nav-first">
-                    {childrenwithDisplay}
-                </ul>
+                <h1  onClick={this.navFirstClick} className="h1-hand">{this.props.name}</h1>{
+                    this.state.isShow===true&&
+                    <ul className="Nav-first">
+                        {childrenwithDisplay}
+                    </ul>
+                }
             </div>
         );
     }
 }
-export default NavFirst;
+export default withRouter(NavFirst);
