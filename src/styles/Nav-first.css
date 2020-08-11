@@ -1,0 +1,9 @@
+.Nav-first{
+    margin: 0;
+    padding: 0;
+    font-size: x-large;
+    text-decoration: none;
+}
+.Nav-first:visited{
+    color: #282c34;
+}

@@ -1,10 +1,10 @@
 import React from 'react';
 import './App.css';
 import Main from "./containers/Main";
-
-function App() {
+import {Route} from "react-router-dom";
+function App(props) {
     return(
-        <Main></Main>
+        <Route path="/" component={Main}></Route>
     );
 }
 

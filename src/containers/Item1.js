@@ -1,81 +1,99 @@
 import React from "react"
 import "../styles/Item1.css"
-import ReactEcharts from "echarts-for-react";
+import BreadCrumb from "./Breadcrumb";
+import SaleEchart from "./SaleEchart";
+import VisitedEchars from "./VisitedEchart";
+import CollectionEchart from "./CollectionEchart";
+import PeopleEchart from "./PeopleEchart";
+import VideoTable from "./VideoTable";
+import RadarEchart from "./RadarEchart";
 function Item1(props) {
-    const data=[
-        {Date:'7-15',scales:'55'},
-        {Date:'7-16',scales: '60'},
-        {Date: '7-17',scales: '65'},
-        {Date: '7-20',scales: '70'},
-        {Date: '7-21',scales: '75'}
-    ];
-    const getOption=()=>{
-        let option={
-            title:{
-              show:false
-            },
-            tooltip:{
-                trigger:'axis'
-            },
-            xAxis:{
-                data:['1','2','3','4']
-            },
-            yAxis:{
-              type:'value'
-            },
-            series:[{
-                name:'销售额',
-                type:'line',
-                data:[5,10,15,20,25]
-            }]
-        }
-        return option;
-    }
-    const bread=props.bread.split('/');
-    console.log(bread);
-    var breadnav=[];
-    for(let i=0;i<bread.length;i++){
-        breadnav.push(<a href="#">{bread[i]}</a>);
-        breadnav.push(<span>/</span>);
-    }
-    breadnav.pop();
     return (
         <div className="contain">
-            <div className="breadcrumb">
-                {breadnav}
-            </div>
+            <BreadCrumb path={props.location.pathname}></BreadCrumb>
             <div className="simple-context">
                 <div className="simple-card">
                     <div className="simple-card-body">
                         <div className="simple-card-header">
-                            <h1>总销售额</h1>
+                            <h1>总转发量</h1>
                         </div>
                         <div className="simple-card-nums">
-                            <h2>¥ 126,560</h2>
+                            <h2>10000</h2>
                         </div>
                         <div className="simple-card-chart">
-                            <ReactEcharts className="echarts-style" option={getOption()}></ReactEcharts>
+                            <SaleEchart ></SaleEchart>
                         </div>
                         <div className="simple-card-footer">
-                            <h3>日销售额￥12,423</h3>
+                            <h3>平均转发量1000</h3>
                         </div>
                     </div>
                 </div>
                 <div className="simple-card">
-                    2
+                        <div className="simple-card-body">
+                            <div className="simple-card-header">
+                                <h1>总访问量</h1>
+                            </div>
+                            <div className="simple-card-nums">
+                                <h2>100</h2>
+                            </div>
+                            <div className="simple-card-chart">
+                                <VisitedEchars></VisitedEchars>
+                            </div>
+                            <div className="simple-card-footer">
+                                <h3>平均访问量10</h3>
+                            </div>
+                        </div>
                 </div>
                 <div className="simple-card">
-                    2
+                    <div className="simple-card-body">
+                        <div className="simple-card-header">
+                            <h1>总收藏量</h1>
+                        </div>
+                        <div className="simple-card-nums">
+                            <h2>1000</h2>
+                        </div>
+                        <div className="simple-card-chart">
+                            <CollectionEchart></CollectionEchart>
+                        </div>
+                        <div className="simple-card-footer">
+                            <h3>平均收藏量60</h3>
+                        </div>
+                    </div>
                 </div>
                 <div className="simple-card">
-                    2
+                    <div className="simple-card-body">
+                        <div className="simple-card-header">
+                            <h1>人群分布</h1>
+                        </div>
+                        <div className="simple-card-chart-pie">
+                            <PeopleEchart></PeopleEchart>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="large-table">
-
+                <div className="large-card">
+                    <div className="large-card-header">
+                        <h1>视频列表</h1>
+                    </div>
+                    <div className="large-card-body">
+                        <VideoTable></VideoTable>
+                    </div>
+                    <div className="large-card-footer"></div>
+                </div>
             </div>
             <div className="large-chart">
+                <div className="large-card">
+                    <div className="large-card-header">
+                        <h1>视频特点</h1>
+                    </div>
+                    <div className="large-card-body">
+                        <RadarEchart></RadarEchart>
+                    </div>
+                    <div className="large-card-footer">
 
+                    </div>
+                </div>
             </div>
         </div>
     );
