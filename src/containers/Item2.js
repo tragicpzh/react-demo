@@ -1,12 +1,20 @@
 import React from "react";
-import RadarEchart from "./RadarEchart";
-import "../styles/Item2.css"
+import {Provider} from "react-redux";
+import todoAPP from "../reducer";
+import {createStore} from "redux";
+import AddTodo from "./AddTodo";
+import VisibleTodoList from "./VisibleTodoList";
+import Footer from "../compoents/Footer";
+const store=createStore(todoAPP);
 function Item2() {
     return(
-        <div className="test">
-            <RadarEchart></RadarEchart>
-        </div>
-
+        <Provider store={store}>
+            <div>
+                <AddTodo></AddTodo>
+                <VisibleTodoList></VisibleTodoList>
+                <Footer></Footer>
+            </div>
+        </Provider>
     );
 }
 

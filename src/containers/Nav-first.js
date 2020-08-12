@@ -1,23 +1,19 @@
 import React, {Component} from "react";
-import {Link} from 'react-router-dom'
 import "../styles/Nav-first.css"
-import {Route,NavLink,withRouter} from "react-router-dom";
-import {createBrowserHistory} from "history";
-const history=createBrowserHistory();
+import {NavLink, withRouter} from "react-router-dom";
 class NavFirst extends Component{
     constructor(props) {
         super(props);
         this.state= {
             isShow: false,
-            path:'/'
+            path:this.props.location.pathname+"/"+this.props.name
         }
         this.navFirstClick=this.navFirstClick.bind(this);
     }
     navFirstClick(){
 
         this.setState({
-            isShow:this.state.isShow===true?false:true,
-            path:this.props.location.pathname+"/"+this.props.name
+            isShow:this.state.isShow===true?false:true
         })
     }
     render(){
